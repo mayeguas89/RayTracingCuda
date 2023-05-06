@@ -33,8 +33,8 @@ add_library(
 )
 target_include_directories(imgui PUBLIC externalLibs/imgui externalLibs/freeglut/include externalLibs/imgui/backends)
 
-add_executable(${PROJECT_NAME} main.cu imgui_app.cpp texture.cpp)
-target_include_directories(${PROJECT_NAME} PRIVATE . externalLibs/glm externalLibs/stb externalLibs/imgui-filebrowser)
+add_executable(${PROJECT_NAME} src/main.cu src/imgui_app.cpp src/texture.cpp)
+target_include_directories(${PROJECT_NAME} PRIVATE src externalLibs/glm externalLibs/stb externalLibs/imgui-filebrowser)
 set_target_properties(${PROJECT_NAME} PROPERTIES CUDA_ARCHITECTURES OFF)
 target_link_libraries(${PROJECT_NAME} PUBLIC freeglut glew imgui)
 
