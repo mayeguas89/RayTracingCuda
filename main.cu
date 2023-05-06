@@ -575,7 +575,7 @@ bool initGL(int* argc, char** argv)
 {
   glutInit(argc, argv);
   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
-  glutInitWindowSize(window_width * 3, window_height * 3);
+  glutInitWindowSize(window_width * 1.5f, window_height * 1.5f);
   glutCreateWindow("Ray tracing");
   glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
   glutIdleFunc(idle);
