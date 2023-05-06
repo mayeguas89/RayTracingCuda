@@ -43,7 +43,15 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 )
 
 get_target_property(freeglut_DLL_DIR freeglut RUNTIME_OUTPUT_DIRECTORY)
-find_file(freeglut_DLL name freeglut.dll PATHS ${freeglut_DLL_DIR} PATH_SUFFIXES Debug Release)
+
+set(freeglut_DLL_NAME freeglutd.dll)
+find_file(freeglut_DLL name ${freeglut_DLL_NAME} PATHS ${freeglut_DLL_DIR} PATH_SUFFIXES Debug)
+
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+  set(freeglut_DLL_NAME freeglut.dll)
+  find_file(freeglut_DLL name ${freeglut_DLL_NAME} PATHS ${freeglut_DLL_DIR} PATH_SUFFIXES Release)
+endif()
+
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy ${freeglut_DLL} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
 )
