@@ -1,5 +1,5 @@
 # RayTracingCuda
-A parallel ray tracer from the series Ray Tracing in one weeken using CUDA
+A parallel ray tracer from the series Ray Tracing in one weekend using CUDA
 
 # Dependencies
 Uses freeglut, glew, imgui, imgui-filebrowser and CUDA 12.1
